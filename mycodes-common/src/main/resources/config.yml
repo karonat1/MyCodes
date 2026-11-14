@@ -1,0 +1,126 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#                          MyCodes — promo code system
+#
+#   Works on BungeeCord / Waterfall / Velocity proxies and on standalone
+#   Spigot/Paper servers. Client versions: 1.16.5 – 1.20.1.
+#
+#   Every change below applies after /mcd reload (including the language).
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Messages language: en (English) | ru (Russian) | tr (Turkish)
+# After changing the language run /mcd reload — it applies on the fly.
+language: en
+
+# ─────────────────────────────────── STORAGE ──────────────────────────────
+storage:
+  # Data storage type:
+  #   file  — JSON files inside the plugin folder (default, zero setup)
+  #   mysql — MySQL database (settings below)
+  type: file
+  mysql:
+    host: localhost
+    port: 3306
+    database: mycodes
+    username: root
+    password: ''
+    # Prefix for the tables created by the plugin
+    table-prefix: mycodes_
+    # Use SSL for the database connection
+    use-ssl: false
+
+# ─────────────────────────────────── TELEGRAM ─────────────────────────────
+# Telegram bot integration — the highlight of this plugin.
+telegram:
+  # Master switch for the Telegram integration (true/false).
+  enabled: false
+
+  # ┌────────────────────────────────────────────────────────────────────────┐
+  # │   TELEGRAM BOT TOKEN (KEY) — get it from the official @BotFather bot:   │
+  # │                                                                        │
+  # │   1. Open @BotFather in Telegram and send /newbot.                     │
+  # │   2. Choose a display name and a @username (must end with «bot»).     │
+  # │   3. BotFather replies with a line like:                               │
+  # │        110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsah                    │
+  # │      This is THE KEY — paste it between the quotes below.              │
+  # │                                                                        │
+  # │   WHAT THIS KEY IS USED FOR:                                           │
+  # │                                                                        │
+  # │   • ANTI-MULTIACCOUNT PROTECTION — the player confirms their identity  │
+  # │     via Telegram and the Telegram account becomes permanently linked   │
+  # │     to their Minecraft nick. A second account (alt) linked to the     │
+  # │     same Telegram can never redeem a promo code again: one Telegram   │
+  # │     = one player.                                                      │
+  # │                                                                        │
+  # │   • NEW-PROMO NOTIFICATIONS — the bot instantly sends a message to    │
+  # │     your admin Telegram chat whenever someone creates a new promo     │
+  # │     code: the code itself, its reward, server and activation limit.    │
+  # │     Perfect for attracting players and keeping your team informed.    │
+  # │                                                                        │
+  # │   Bot texts can be edited in lang/<language>.yml (keys starting        │
+  # │   with tg-).                                                            │
+  # └────────────────────────────────────────────────────────────────────────┘
+  bot-token: ''
+
+  # Numeric ID of the chat that receives notifications about new promo codes.
+  # How to get your ID: send /chatid to your bot — it replies with your
+  # numeric chat ID; paste it here. Several IDs can be listed, comma
+  # separated (e.g. an admin group chat).
+  admin-chat-id: ''
+
+  # "Confirm via Telegram" — the global confirmation mode:
+  #   true  — a player entering a promo code receives a PERSONAL link;
+  #           they open it, press Start in the bot — and the promo code is
+  #           activated automatically (entering it twice is not needed).
+  #           Any single promo code can override this in the /mcd menu.
+  #   false — confirmation is only required by codes that opt in
+  #           individually in the menu.
+  require-confirmation: false
+
+  # Anti-multiaccount protection: one Telegram account may only be linked
+  # to one Minecraft player (blocks alt accounts).
+  anti-multi: true
+
+  # Send a notification to the admin Telegram chat when a promo code is created.
+  notify-on-create: true
+
+  # Telegram long-polling timeout, seconds. No need to change this.
+  poll-timeout: 30
+
+  # How many minutes the personal confirmation link stays valid.
+  link-expire-minutes: 15
+
+# ──────────────────────── PROMO ACTIVATION EFFECTS ────────────────────────
+# The player gets a colorful visual effect at the moment of activation.
+# 14 effects are available (chosen per promo code in the /mcd menu):
+#   FIREWORK      ✦ Sky Salvo        — triple volley of large firework balls
+#   FIREWORK_RAIN ☄ Firework Rain     — cascades of fireworks around the player
+#   HELIX         ✧ Twin Helix        — two intertwined flame spirals
+#   DOME          ✪ Radiant Dome      — shimmering particle dome from above
+#   TOTEM         ☠ Totem Blessing    — totem of undying effect with a halo
+#   HEARTS        ❤ Heart Storm       — a storm of hearts swirling around
+#   ENCHANT       ✨ Enchant Surge     — magical vortex of enchantment glyphs
+#   EXPLOSION     ✸ Boom!             — safe explosion tossing the player up
+#   WATER         ☂ Aqua Spiral       — water spiral with bubbles and spray
+#   MYSTIC        ✵ Mystic Portal     — portal pillar with End Rod beams
+#   LASER         ⟫ Star Lasers       — rotating emerald laser beams
+#   FAIRY         ✿ Fairy Dust        — a swarm of shimmering fairy sparks
+#   DRAGON        🐲 Dragon Breath     — swirling dragon breath rings
+#   PULSAR        ✺ Pulsar Rings      — expanding rings with a rotating halo
+effects:
+  # Default effect for newly created promo codes
+  default-type: FIREWORK
+  # Default effect duration, seconds (1–10)
+  default-duration: 3
+  # "Activation time" — a pause before the reward is handed out while the
+  # player enjoys the effect. 0 = instantly.
+  default-reward-delay: 0
+  # Play effect sounds (per player). Set to false for a fully silent plugin.
+  sounds: true
+
+# ──────────────────────────────────── MISC ────────────────────────────────
+# Announce every new promo code to all players in game
+# (an in-game counterpart of the Telegram notification).
+broadcast-on-create: true
+
+# Date format used in /mcd list and menus. Java SimpleDateFormat pattern.
+date-format: 'dd.MM.yyyy HH:mm'

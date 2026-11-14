@@ -1,0 +1,5 @@
+name: MyCodes
+version: 1.0.0
+main: dev.kilo.mycodes.bungee.MyCodesBungeePlugin
+author: Kilo
+description: Promo code system with Telegram integration (BungeeCord/Waterfall). Install MyCodes-Spigot on your backend servers for GUI menus and effects.

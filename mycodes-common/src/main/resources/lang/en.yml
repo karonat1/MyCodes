@@ -1,0 +1,506 @@
+# ═══════════════════════════════════════════════════════════════════
+#   MyCodes messages — ENGLISH (default)
+#
+#   Colors:        &a &b &c ... (classic color codes)
+#   Gradient:      <gradient:#00E5FF:#7C4DFF>your text</gradient>
+#   Placeholders:  %code%, %player%, %uses%, %max%, %server%, ...
+#   Apply changes: /mcd reload
+# ═══════════════════════════════════════════════════════════════════
+
+# Core
+prefix: '<gradient:#00E5FF:#7C4DFF>&l✦ MyCodes</gradient> &8»&r '
+no-permission: '%prefix%&cYou do not have permission to do that.'
+player-only: '%prefix%&cThis command is only available to players.'
+reloaded: '%prefix%&aConfiguration, language and storage reloaded successfully.'
+unknown-subcommand: '%prefix%&cUnknown subcommand. Showing help:'
+
+# /mcd help
+help:
+  - '&8&m                                                  '
+  - ' <gradient:#00E5FF:#7C4DFF>&l✦ MYCODES</gradient> &7— promo code system'
+  - '&8&m                                                  '
+  - ' &b/mcd menu &8— &fopen the management menu'
+  - ' &b/mcd list [page] &8— &fshow all promo codes'
+  - ' &b/mcd reload &8— &freload plugin configuration'
+  - ' &b/mcd code <code> &8— &factivate a promo code'
+  - ' &b/code <code> &8— &factivate a promo code'
+  - ' &b/promo <code>&8, &b/promocode <code> &8— &faliases'
+  - '&7 Tips: create and fine-tune promos in &b/mcd menu&7.'
+  - '&8&m                                                  '
+
+# Redeem
+redeem-usage: '%prefix%&7Usage: &b/code <code>'
+redeem-not-found: '%prefix%&cPromo code &e%code%&c does not exist.'
+redeem-disabled: '%prefix%&cPromo code &e%code%&c is currently disabled.'
+redeem-expired: '%prefix%&cPromo code &e%code%&c has expired.'
+redeem-exhausted: '%prefix%&cPromo code &e%code%&c has run out of activations.'
+redeem-already-used: '%prefix%&cYou have already activated code &e%code%&c.'
+redeem-already-used-telegram: '%prefix%&cThis promo code was already used from another account linked to your Telegram.'
+redeem-wrong-server: '%prefix%&cCode &e%code%&c can only be activated on server &b%server%&c.'
+redeem-success: '<gradient:#55FF7C:#00E5FF>&lSUCCESS!</gradient> &7Promo code &b%code%&7 activated! Your reward will follow shortly.'
+# Screen texts on activation (title = big center text, actionbar = hot bar strip)
+redeem-title: '<gradient:#55FF7C:#00E5FF>&l✔ CODE ACTIVATED</gradient>'
+redeem-subtitle: '&7Your reward is on its way...'
+redeem-actionbar: '<gradient:#55FF7C:#00E5FF>&l✔ Activated!</gradient> &7Enjoy your reward'
+storage-error: '%prefix%&cInternal storage error. Contact an administrator.'
+
+# Telegram confirmation
+telegram-not-configured: '%prefix%&cThis promo code requires Telegram confirmation, but the Telegram bot is unavailable. Please inform an administrator.'
+telegram-pending: '%prefix%&7To activate code &b%code%&7, confirm it via our Telegram bot.\n&7Open your personal link and press &aStart&7.'
+telegram-pending-link: '<gradient:#29B6F6:#7C4DFF>&l&n[ CLICK TO CONFIRM IN TELEGRAM ]</gradient>'
+telegram-pending-note: '&8(hover to see the link if clicking is unavailable)'
+
+# /mcd list
+list-header: '<gradient:#00E5FF:#7C4DFF>&l✦ Promo Codes</gradient> &8— &7page %page%'
+list-empty: '%prefix%&7There are no promo codes yet. Create one via &b/mcd menu&7.'
+list-pages: '&8&m                                                  '
+list-line:
+  - '&8▪ &b%code% &7(%type%) &8— &f%status%'
+  - '   &7server: &f%server%&7, uses: &f%uses%&7/&f%max%&7, effect: &f%effect%'
+  - '   &7telegram: %tg%&7, expires: &f%expire%'
+list-pages-format: '&7Page &f%page%&7 of &f%pages%&7.'
+
+# Words
+status-enabled: '&a✔ enabled'
+status-disabled: '&c✘ disabled'
+type-command: 'console command'
+type-item: 'item reward'
+unlimited: '∞'
+expire-never: 'never'
+server-any: 'any server'
+server-current: 'current server'
+tg-mode-DEFAULT: '&7global setting'
+tg-mode-REQUIRED: '&brequired'
+tg-mode-OFF: '&coff'
+
+# Create
+create-menu-hint: '%prefix%&7Open the menu with &b/mcd menu&7 and use the &fCreate Promo Code&7 button.'
+create-done: '%prefix%&aPromo code &b%code%&a created successfully!'
+create-exists: '%prefix%&cPromo code &e%code%&c already exists.'
+create-invalid-code: '%prefix%&cInvalid code. Use 3–32 characters: letters, digits, _ or -'
+broadcast-new-promo: '<gradient:#FFD700:#FF6B6B>&l✦ NEW PROMO CODE!</gradient> &f%code% &8— &7activate it with &b/code %code%'
+
+# Menu titles (client shows max ~32 chars — keep them short)
+menu-title-main: '&5&lMyCodes'
+menu-title-list: '&5Promo Codes'
+menu-title-editor: '&5Edit Promo'
+menu-title-type: '&2Reward Type'
+menu-title-effects: '&bEffects'
+menu-title-servers: '&3Select Server'
+menu-title-settings: '&6Settings'
+menu-title-telegram: '&6Telegram Settings'
+menu-title-item: '&2Reward Item'
+menu-title-confirm: '&cConfirm Action'
+close-name: '&c✖ Close'
+
+# Main menu
+main-list-name: '<gradient:#00E5FF:#7C4DFF>&l✦ Promo Codes</gradient>'
+main-list-lore:
+  - '&7Browse, edit and delete promo codes.'
+  - ''
+  - '&e▸ Left-click to open the list'
+main-create-name: '<gradient:#55FF7C:#00E5FF>&l✚ Create Promo Code</gradient>'
+main-create-lore:
+  - '&7Create a new promo code with a'
+  - '&7step-by-step wizard: code, reward,'
+  - '&7server, effects and limits.'
+  - ''
+  - '&e▸ Left-click to start'
+main-settings-name: '<gradient:#FFD700:#FF8C00>&l⚙ Settings</gradient>'
+main-settings-lore:
+  - '&7Language, Telegram bot, effects,'
+  - '&7default values.'
+  - ''
+  - '&e▸ Left-click to open'
+main-help-name: '<gradient:#C7A5FF:#FF9CF3>&l? Help</gradient>'
+main-help-lore:
+  - '&7Show command help.'
+  - ''
+  - '&e▸ Left-click'
+mode-bridge-name: '<gradient:#55FF7C:#00E5FF>&l⇄ Network Mode</gradient>'
+mode-bridge-lore:
+  - '&7MyCodes is running on &f%proxy%&7.'
+  - '&7Promo codes are shared across all'
+  - '&7servers of the network and stored'
+  - '&7centrally on the proxy.'
+mode-standalone-name: '<gradient:#FFD700:#FF6B6B>&l● Single Server</gradient>'
+mode-standalone-lore:
+  - '&7MyCodes is running standalone.'
+  - '&7All promo codes are stored and'
+  - '&7activated on this server only.'
+
+# List menu
+list-prev-name: '&e◀ Previous page'
+list-prev-lore:
+  - '&7Go to page &f%page%&7.'
+list-next-name: '&eNext page ▶'
+list-next-lore:
+  - '&7Go to page &f%page%&7.'
+list-promo-command-name: '<gradient:#FFD700:#FF8C00>&l✎ %code%</gradient>'
+list-promo-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ %code%</gradient>'
+list-promo-lore:
+  - '&7Status: %status%'
+  - '&7Reward: &f%type%'
+  - '&7Server: &f%server%'
+  - '&7Uses: &f%uses%&7/&f%max%'
+  - '&7Effect: &f%effect% &7(%duration%s)'
+  - '&7Reward delay: &f%delay%s'
+  - '&7Telegram: %tg%'
+  - '&7Expires: &f%expire%'
+  - ''
+  - '&e▸ Left-click to edit'
+
+# Editor menu
+editor-info-name: '<gradient:#00E5FF:#7C4DFF>&l✦ %code%</gradient>'
+editor-info-lore:
+  - '&7Status: %status%'
+  - '&7Uses: &f%uses%&7/&f%max%'
+  - '&7Created: &f%created%'
+  - '&7Expires: &f%expire%'
+editor-code-name: '&e✎ Rename'
+editor-code-lore:
+  - '&7Change the promo code text.'
+  - '&7Players activate it with /code.'
+  - ''
+  - '&8Current: &f%code%'
+editor-enabled-name: '&6⏻ Enable / Disable'
+editor-enabled-lore:
+  - '&7Disabled promos are kept but'
+  - '&7cannot be activated.'
+  - ''
+  - '&8Current: %status%'
+editor-server-name: '&3⇄ Server'
+editor-server-lore:
+  - '&7Restrict where this code can be'
+  - '&7activated.'
+  - ''
+  - '&8Current: &f%server%'
+editor-reward-name: '&a✦ Reward'
+editor-reward-lore:
+  - '&7What the player receives.'
+  - '&7Command runs from the console with'
+  - '&7%player% placeholder, or an item.'
+  - ''
+  - '&8Current: &f%type%'
+editor-uses-name: '&e# Activations Limit'
+editor-uses-lore:
+  - '&7Maximum total activations.'
+  - '&7Use &f0&7 for unlimited.'
+  - ''
+  - '&8Current: &f%max%'
+editor-once-name: '&e⏱ Once per player'
+editor-once-lore:
+  - '&7Each player may activate this'
+  - '&7code only once.'
+  - ''
+  - '&8Current: %status%'
+editor-tgmode-name: '&6✈ Telegram Confirmation'
+editor-tgmode-lore:
+  - '&7Require activating via Telegram bot:'
+  - '&7player receives a personal link,'
+  - '&7confirms in the bot and the code is'
+  - '&7credited automatically.'
+  - ''
+  - '&8Current: %tg%'
+editor-tgonce-name: '&6✈ Anti Multi-Account'
+editor-tgonce-lore:
+  - '&7One Telegram account may activate'
+  - '&7this code only once (blocks alts).'
+  - ''
+  - '&8Current: %status%'
+editor-effect-name: '&b✨ Effect'
+editor-effect-lore:
+  - '&7Visual effect played on activation.'
+  - ''
+  - '&8Current: &f%effect%'
+editor-duration-name: '&b⏳ Effect Duration'
+editor-duration-lore:
+  - '&7How long the effect plays, seconds.'
+  - ''
+  - '&8Current: &f%duration%s'
+editor-delay-name: '&b⌛ Reward Delay'
+editor-delay-lore:
+  - '&7Activation time: pause before the'
+  - '&7reward is handed out, seconds.'
+  - ''
+  - '&8Current: &f%delay%s'
+editor-message-name: '&e✉ Custom Message'
+editor-message-lore:
+  - '&7Message shown to the player on'
+  - '&7activation. Gradient markup works.'
+  - '&7Type &fclear&7 to remove.'
+  - ''
+  - '&8Current: &f%custom%'
+editor-expiry-name: '&e⌚ Expiry'
+editor-expiry-lore:
+  - '&7When this code stops working.'
+  - '&7Type &fnever&7 or a number of days.'
+  - ''
+  - '&8Current: &f%expire%'
+editor-stats-name: '&e📊 Statistics'
+editor-stats-lore:
+  - '&7Total activations: &f%uses%'
+  - '&7Limit: &f%max%'
+editor-preview-name: '&b▶ Preview Effect'
+editor-preview-lore:
+  - '&7Play the effect on yourself to'
+  - '&7see how it looks.'
+  - ''
+  - '&e▸ Click to preview'
+editor-delete-name: '&c✖ Delete Promo Code'
+editor-delete-lore:
+  - '&7Delete this promo code forever.'
+  - '&7This action cannot be undone!'
+  - ''
+  - '&e▸ Click to confirm'
+editor-back-name: '&e◀ Back to the list'
+editor-updated: '%prefix%&aSaved.'
+
+# Create wizard
+create-prompt-code: '%prefix%&7Type the &bnew promo code&7 in chat (3–32 chars: A-Z, 0-9, _).\n&8Type %cancel% to abort.'
+create-type-command-name: '<gradient:#FFD700:#FF8C00>&l✎ Console Command</gradient>'
+create-type-command-lore:
+  - '&7The command executes from the console.'
+  - '&7Use %player% for the player''s name.'
+  - ''
+  - '&7Example: &fgive %player% diamond 5'
+  - ''
+  - '&e▸ Click to choose'
+create-type-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ Item Reward</gradient>'
+create-type-item-lore:
+  - '&7Give the player an item.'
+  - '&7You will place the item in the menu.'
+  - ''
+  - '&e▸ Click to choose'
+create-prompt-command: '%prefix%&7Type the &breward command&7 in chat (without a leading slash, %player% = nick).\n&8Type %cancel% to abort.'
+create-command-set: '%prefix%&7Command saved: &f%value%'
+create-item-hint: '%prefix%&7Place the item into the &bglowing slot&7, then press Done.'
+item-done-name: '&a✔ Done'
+item-done-lore:
+  - '&7Save this item as the reward.'
+  - ''
+  - '&e▸ Click to save'
+item-cancel-name: '&c✖ Cancel'
+item-slot-name: '&b⬆ Reward item slot'
+item-slot-name-filled: '&b&l✔ Item selected'
+item-slot-lore:
+  - '&7Drop or place any item into the &bcenter slot&7.'
+  - '&7You can freely hold, take and swap items.'
+  - ''
+  - '&7Press &a✔ Done&7 when ready.'
+item-saved: '%prefix%&aReward item saved.'
+item-returned: '%prefix%&7The item from the menu was returned to your inventory.'
+
+# Chat input
+input-cancelled: '%prefix%&7Input cancelled.'
+input-timeout: '%prefix%&cInput timed out.'
+input-invalid: '%prefix%&cInvalid value, try again.'
+input-received: '%prefix%&7Saved: &f%value%'
+# Screen hints while a chat input is pending (title = big center text)
+input-hint-title: '&b&l✎ TYPE IN CHAT'
+input-hint-subtitle: '&7Enter your answer in chat • &fcancel&7: %cancel%'
+input-hint-actionbar: '&bType your answer in chat &8• &7cancel: &f%cancel%'
+cancel-word: 'cancel'
+
+# Prompts for numeric/text editing
+prompt-uses: '%prefix%&7Type the &bactivation limit&7 in chat (&f0&7 = unlimited).\n&8Type %cancel% to abort.'
+prompt-expiry: '%prefix%&7Type the &bexpiry&7 in chat: &fnever&7 or a number of &fdays&7.\n&8Type %cancel% to abort.'
+prompt-duration: '%prefix%&7Type the &beffect duration&7 in seconds (&f1–10&7).\n&8Type %cancel% to abort.'
+prompt-delay: '%prefix%&7Type the &breward delay&7 in seconds (&f0–60&7).\n&8Type %cancel% to abort.'
+prompt-message: '%prefix%&7Type the &bactivation message&7 in chat. Gradients work: &f<gradient:#00E5FF:#7C4DFF>text</gradient>&7. Type &fclear&7 to reset.\n&8Cancel: &f%cancel%\n&7Placeholders: &f%player% &8— player nick, &f%code% &8— promo code, &f%uses% &8— current activations.'
+prompt-code: '%prefix%&7Type the &bnew code&7 in chat.\n&8Type %cancel% to abort.'
+expiry-set-never: '%prefix%&7Expiry: &fnever'
+expiry-set-days: '%prefix%&7Expiry: &f%date%'
+
+# Effects menu
+effects-title-name: '&b✨ Choose Effect'
+effects-lore:
+  - '&7Click to select this effect.'
+  - ''
+  - '&e▸ Preview on yourself: right-click'
+effect-FIREWORK: '✦ Sky Salvo'
+effect-desc-FIREWORK: 'A triple volley of large firework bursts'
+effect-FIREWORK_RAIN: '☄ Firework Rain'
+effect-desc-FIREWORK_RAIN: 'Cascades of colorful fireworks fall around you'
+effect-HELIX: '✧ Twin Helix'
+effect-desc-HELIX: 'Two intertwined flame spirals rising to the sky'
+effect-DOME: '✪ Radiant Dome'
+effect-desc-DOME: 'A shimmering dome of particles descending over you'
+effect-TOTEM: '☠ Totem Blessing'
+effect-desc-TOTEM: 'Totem of undying magic with a spinning halo'
+effect-HEARTS: '❤ Heart Storm'
+effect-desc-HEARTS: 'A storm of hearts swirling around the player'
+effect-ENCHANT: '✨ Enchant Surge'
+effect-desc-ENCHANT: 'A magical vortex of enchantment table glyphs'
+effect-EXPLOSION: '✸ Boom!'
+effect-desc-EXPLOSION: 'A safe explosion that tosses you into the air'
+effect-WATER: '☂ Aqua Spiral'
+effect-desc-WATER: 'A water spiral with bubbles and splashes'
+effect-MYSTIC: '✵ Mystic Portal'
+effect-desc-MYSTIC: 'A portal pillar with dancing End Rod beams'
+effect-LASER: '⟫ Star Lasers'
+effect-desc-LASER: 'Rotating emerald laser beams into the sky'
+effect-FAIRY: '✿ Fairy Dust'
+effect-desc-FAIRY: 'A swarm of shimmering fairy sparks around you'
+effect-DRAGON: '🐲 Dragon Breath'
+effect-desc-DRAGON: 'Swirling rings of dragon breath with a growl'
+effect-PULSAR: '✺ Pulsar Rings'
+effect-desc-PULSAR: 'Expanding pulsar rings with a rotating halo'
+effect-selected: '%prefix%&aEffect selected: &b%effect%'
+
+# Server menu
+server-any-name: '<gradient:#55FF7C:#00E5FF>&l✦ Any server</gradient>'
+server-any-lore:
+  - '&7The code can be activated on'
+  - '&7every server of the network.'
+server-entry-name: '&b⇄ %server%'
+server-entry-lore:
+  - '&7The code can be activated only'
+  - '&7on this server.'
+server-current-name: '<gradient:#55FF7C:#00E5FF>&l✦ This server</gradient>'
+server-current-lore:
+  - '&7Single server mode: the code is'
+  - '&7activated right here.'
+server-none-available: '%prefix%&cNo servers available (are you behind a proxy?).'
+
+# Confirm menu
+confirm-title-name: '&c&lConfirm Deletion'
+confirm-lore:
+  - '&7Are you sure you want to delete'
+  - '&7promo code &b%code%&7?'
+confirm-yes-name: '<gradient:#FF5555:#FF2222>&l✔ YES, DELETE</gradient>'
+confirm-yes-lore:
+  - '&7This cannot be undone.'
+confirm-no-name: '<gradient:#55FF7C:#00AA00>&l✖ CANCEL</gradient>'
+confirm-no-lore:
+  - '&7Keep the promo code.'
+promo-deleted: '%prefix%&aPromo code &b%code%&a deleted.'
+
+# Settings menu
+settings-language-name: '<gradient:#FFD700:#FF8C00>&l⌘ Language</gradient>'
+settings-language-lore:
+  - '&7Plugin messages language.'
+  - ''
+  - '&8Current: &f%language%'
+  - ''
+  - '&e▸ Click to switch (en → ru → tr)'
+settings-telegram-name: '<gradient:#29B6F6:#7C4DFF>&l✈ Telegram Bot</gradient>'
+settings-telegram-lore:
+  - '&7Bot token, admin chat, confirmation'
+  - '&7mode, anti multi-account,'
+  - '&7notifications about new promos.'
+  - ''
+  - '&e▸ Click to open'
+settings-effect-name: '<gradient:#00E5FF:#55FF7C>&l✨ Default Effect</gradient>'
+settings-effect-lore:
+  - '&7Effect for newly created promos.'
+  - ''
+  - '&8Current: &f%effect%'
+  - ''
+  - '&e▸ Click to choose'
+settings-broadcast-name: '<gradient:#FFAA00:#FFD700>&l📢 Broadcast New Promos</gradient>'
+settings-broadcast-lore:
+  - '&7Announce new promo codes to all'
+  - '&7players in game.'
+  - ''
+  - '&8Current: %status%'
+settings-reload-name: '<gradient:#FF5555:#FFAA00>&l⟳ Reload</gradient>'
+settings-reload-lore:
+  - '&7Reload config, language and'
+  - '&7storage right now.'
+  - ''
+  - '&e▸ Click to reload'
+settings-info-lore:
+  - '&7Platform: &f%platform%'
+  - '&7Storage: &f%storage%'
+  - '&7Language: &f%language%'
+  - '&7Version: &f%version%'
+settings-done: '%prefix%&aSettings applied.'
+
+# Telegram settings menu
+tg-enabled-name: '<gradient:#55FF7C:#FF5555>&l⏻ Telegram Enabled</gradient>'
+tg-enabled-lore:
+  - '&7Master switch for the Telegram'
+  - '&7integration.'
+  - ''
+  - '&8Current: %status%'
+tg-token-name: '<gradient:#FFD700:#FF8C00>&l🔑 Bot Token (Key)</gradient>'
+tg-token-lore:
+  - '&7The KEY from @BotFather. Used for'
+  - '&7anti-multiaccount protection and'
+  - '&7promo notifications. See config.yml.'
+  - ''
+  - '&8Current: %token-status%'
+  - ''
+  - '&e▸ Click, then type the token in chat'
+tg-token-prompt: '%prefix%&7Type the &bbot token from @BotFather&7 in chat.\n&8Type %cancel% to abort.'
+tg-token-entered: '%prefix%&7Connecting to the bot...'
+tg-token-ok: '%prefix%&aTelegram bot connected: &f@%username%'
+tg-token-fail: '%prefix%&cCould not start the bot. Check the token.'
+tg-chat-name: '<gradient:#29B6F6:#7C4DFF>&l✉ Admin Chat ID</gradient>'
+tg-chat-lore:
+  - '&7Where to send notifications about'
+  - '&7new promo codes. Write /chatid to'
+  - '&7your bot to learn your ID.'
+  - ''
+  - '&8Current: &f%chat-id%'
+  - ''
+  - '&e▸ Click, then type the ID in chat'
+tg-chat-prompt: '%prefix%&7Type the &badmin chat ID&7 (numeric, exact commas allowed).\n&8Type %cancel% to abort.'
+tg-require-name: '<gradient:#FFAA00:#7C4DFF>&l✈ Confirm via Telegram</gradient>'
+tg-require-lore:
+  - '&7Require Telegram confirmation by'
+  - '&7default for ALL promos (each promo'
+  - '&7can override this in its menu).'
+  - ''
+  - '&8Current: %status%'
+tg-antimulti-name: '<gradient:#FF5555:#FFAA00>&l⛨ Anti Multi-Account</gradient>'
+tg-antimulti-lore:
+  - '&7One Telegram account can only be'
+  - '&7linked to one player (blocks alts).'
+  - ''
+  - '&8Current: %status%'
+tg-notify-name: '<gradient:#FFD700:#55FF7C>&l🔔 TG Notifications</gradient>'
+tg-notify-lore:
+  - '&7Send a message to the admin chat'
+  - '&7whenever a new promo is created.'
+  - ''
+  - '&8Current: %status%'
+tg-status-connected: '&aconnected (@%username%)'
+tg-status-off: '&cdisabled'
+tg-status-no-token: '&cno token set'
+tg-status-unavailable: '&ctoken invalid / unreachable'
+tg-settings-status-lore:
+  - '&7Bot status: %status%'
+  - '&7The token (key) is described in detail'
+  - '&7in the comments of config.yml.'
+tg-back-name: '&e◀ Back to Settings'
+
+# Statuses/words
+generic-on: '&aenabled'
+generic-off: '&cdisabled'
+generic-none: '&7(not set)'
+
+# Storage labels for settings menu
+storage-network: 'network (proxy storage)'
+storage-mysql: 'MySQL database'
+storage-json: 'JSON files'
+
+# Bridge
+bridge-unavailable: '%prefix%&cCannot reach the MyCodes plugin on the proxy right now. Make sure at least one player (you) is online and try again.'
+proxy-menu-hint: '%prefix%&7On a proxy, the menu opens on a game server. Join any server with &bMyCodes-Spigot&7 installed and type &b/mcd menu&7. Text commands work everywhere: &b/mcd list&7, &b/mcd reload&7, &b/code <code>&7.'
+
+# Item delivery
+item-drop-full-inventory: '%prefix%&7Your inventory was full — the reward item was dropped on the ground!'
+
+# Telegram bot texts (plain, sent inside Telegram)
+tg-greeting: '✦ MyCodes bot\n\nThis bot confirms promo codes and sends notifications about new promo codes.\nGet a personal link in game by activating a promo code (/code <code>).'
+tg-confirmed: '✅ Confirmed! Promo code %code% activated — the reward is granted automatically. Enjoy!'
+tg-link-expired: '⌛ This confirmation link has expired. Activate the promo code in game again to get a new link.'
+tg-already-bound: '⛔ This Telegram account is already linked to player %player%. Multi-accounts are not allowed.'
+tg-already-used: '⛔ This promo code has already been activated by your account.'
+tg-promo-gone: '⛔ This promo code no longer exists or was disabled.'
+tg-exhausted: '⛔ This promo code has run out of activations.'
+tg-error: '⛔ Internal error. Please try again later.'
+tg-chatid: 'Your chat ID: %id%\nAdd it to telegram.admin-chat-id in config.yml (or via /mcd menu) to receive notifications about new promo codes.'
+tg-notify-new-promo: '✦ NEW PROMO CODE created!\n\nCode: %code%\nReward: %type%\nServer: %server%\nActivations: %uses%\n\nShare it with your players!'

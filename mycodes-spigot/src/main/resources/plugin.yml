@@ -1,0 +1,56 @@
+name: MyCodes
+version: 1.0.0
+main: dev.kilo.mycodes.spigot.MyCodesSpigotPlugin
+api-version: 1.16
+authors: [Kilo]
+description: Promo code system with GUI, effects and Telegram integration (works with BungeeCord/Waterfall/Velocity proxy and standalone)
+
+commands:
+  mycodes:
+    description: MyCodes main command
+    usage: /mcd help
+    aliases: [mcd]
+    permission: mycodes.use
+  code:
+    description: Activate a promo code
+    usage: /code <code>
+    permission: mycodes.use
+  promo:
+    description: Activate a promo code
+    usage: /promo <code>
+    permission: mycodes.use
+    aliases: [promocode]
+
+permissions:
+  mycodes.use:
+    description: Allows activating promo codes
+    default: true
+  mycodes.menu:
+    description: Opens the MyCodes management menu
+    default: op
+  mycodes.list:
+    description: Shows promo code list
+    default: op
+  mycodes.create:
+    description: Creates promo codes
+    default: op
+  mycodes.edit:
+    description: Edits promo codes
+    default: op
+  mycodes.delete:
+    description: Deletes promo codes
+    default: op
+  mycodes.reload:
+    description: Reloads MyCodes
+    default: op
+  mycodes.admin:
+    description: All MyCodes permissions
+    default: op
+    children:
+      mycodes.use: true
+      mycodes.menu: true
+      mycodes.list: true
+      mycodes.create: true
+      mycodes.edit: true
+      mycodes.delete: true
+      mycodes.reload: true

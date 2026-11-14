@@ -1,0 +1,501 @@
+# ═══════════════════════════════════════════════════════════════════
+#   MyCodes eklenti mesajları — TÜRKÇE
+#
+#   Renkler:        &a &b &c ... (klasik Minecraft renk kodları)
+#   Gradyan:        <gradient:#00E5FF:#7C4DFF>metniniz</gradient>
+#   Yer tutucular:  %code%, %player%, %uses%, %max%, %server%, ...
+#   Uygulamak için: /mcd reload
+# ═══════════════════════════════════════════════════════════════════
+
+# Temel
+prefix: '<gradient:#00E5FF:#7C4DFF>&l✦ MyCodes</gradient> &8»&r '
+no-permission: '%prefix%&cBunu yapmak için yetkiniz yok.'
+player-only: '%prefix%&cBu komut sadece oyuncular için geçerlidir.'
+reloaded: '%prefix%&aYapılandırma, dil ve depolama başarıyla yeniden yüklendi.'
+unknown-subcommand: '%prefix%&cBilinmeyen alt komut. Yardım gösteriliyor:'
+
+# /mcd help
+help:
+  - '&8&m                                                  '
+  - ' <gradient:#00E5FF:#7C4DFF>&l✦ MYCODES</gradient> &7— promosyon kodu sistemi'
+  - '&8&m                                                  '
+  - ' &b/mcd menu &8— &fyönetim menüsünü aç'
+  - ' &b/mcd list [sayfa] &8— &ftüm promosyon kodlarını göster'
+  - ' &b/mcd reload &8— &feklenti yapılandırmasını yeniden yükle'
+  - ' &b/mcd code <kod> &8— &fpromosyon kodunu etkinleştir'
+  - ' &b/code <kod> &8— &fpromosyon kodunu etkinleştir'
+  - ' &b/promo <kod>&8, &b/promocode <kod> &8— &falternatifler'
+  - '&7 İpucu: kodları oluşturup ayarlamak için &b/mcd menu&7''yu kullanın.'
+  - '&8&m                                                  '
+
+# Kullanım
+redeem-usage: '%prefix%&7Kullanım: &b/code <kod>'
+redeem-not-found: '%prefix%&c&e%code%&c adlı promosyon kodu mevcut değil.'
+redeem-disabled: '%prefix%&c&e%code%&c promosyon kodu şu anda devre dışı.'
+redeem-expired: '%prefix%&c&e%code%&c promosyon kodunun süresi doldu.'
+redeem-exhausted: '%prefix%&c&e%code%&c promosyon kodunun kullanım hakkı bitti.'
+redeem-already-used: '%prefix%&c&e%code%&c kodunu zaten kullandınız.'
+redeem-already-used-telegram: '%prefix%&cBu promosyon kodu, Telegram''ınıza bağlı başka bir hesaptan zaten kullanılmış.'
+redeem-wrong-server: '%prefix%&c&e%code%&c kodu yalnızca &b%server%&c sunucusunda etkinleştirilebilir.'
+redeem-success: '<gradient:#55FF7C:#00E5FF>&lBAŞARILI!</gradient> &7&b%code%&7 kodu etkinleştirildi! Ödülünüz birazdan verilecek.'
+# Etkinleştirme anındaki ekran yazıları (title = ekran ortası, actionbar = hot bar üstü)
+redeem-title: '<gradient:#55FF7C:#00E5FF>&l✔ KOD ETKİNLEŞTİRİLDİ</gradient>'
+redeem-subtitle: '&7Ödülünüz yolda...'
+redeem-actionbar: '<gradient:#55FF7C:#00E5FF>&l✔ Etkinleştirildi!</gradient> &7Ödülünüzün tadını çıkarın'
+storage-error: '%prefix%&cDahili depolama hatası. Lütfen yöneticiye bildirin.'
+
+# Telegram onayı
+telegram-not-configured: '%prefix%&cBu promosyon kodu Telegram onayı gerektiriyor, ancak Telegram botu kullanılamıyor. Lütfen yöneticiye bildirin.'
+telegram-pending: '%prefix%&7&b%code%&7 kodunu etkinleştirmek için Telegram botumuz üzerinden onaylayın.\n&7Kişisel bağlantınızı açın ve &aStart&7''a basın.'
+telegram-pending-link: '<gradient:#29B6F6:#7C4DFF>&l&n[ TELEGRAM''DA ONAYLAMAK İÇİN TIKLAYIN ]</gradient>'
+telegram-pending-note: '&8(tıklama çalışmıyorsa bağlantı imleçle üzerine gelince görünür)'
+
+# /mcd list
+list-header: '<gradient:#00E5FF:#7C4DFF>&l✦ Promosyon Kodları</gradient> &8— &7sayfa %page%'
+list-empty: '%prefix%&7Henüz promosyon kodu yok. İlkini &b/mcd menu&7 ile oluşturun.'
+list-pages: '&8&m                                                  '
+list-line:
+  - '&8▪ &b%code% &7(%type%) &8— &f%status%'
+  - '   &7sunucu: &f%server%&7, kullanım: &f%uses%&7/&f%max%&7, efekt: &f%effect%'
+  - '   &7telegram: %tg%&7, süre sonu: &f%expire%'
+list-pages-format: '&7Sayfa &f%page%&7 / &f%pages%&7.'
+
+# Kelimeler
+status-enabled: '&a✔ etkin'
+status-disabled: '&c✘ devre dışı'
+type-command: 'konsol komutu'
+type-item: 'eşya ödülü'
+unlimited: '∞'
+expire-never: 'süresiz'
+server-any: 'herhangi bir sunucu'
+server-current: 'mevcut sunucu'
+tg-mode-DEFAULT: '&7genel ayar'
+tg-mode-REQUIRED: '&bgerekli'
+tg-mode-OFF: '&ckapalı'
+
+# Oluşturma
+create-menu-hint: '%prefix%&7&b/mcd menu&7 ile menüyü açın ve «Promosyon Kodu Oluştur» düğmesini kullanın.'
+create-done: '%prefix%&a&b%code%&a promosyon kodu başarıyla oluşturuldu!'
+create-exists: '%prefix%&c&e%code%&c promosyon kodu zaten mevcut.'
+create-invalid-code: '%prefix%&cGeçersiz kod. 3–32 karakter kullanın: harf, rakam, _ veya -'
+broadcast-new-promo: '<gradient:#FFD700:#FF6B6B>&l✦ YENİ PROMOSYON KODU!</gradient> &f%code% &8— &7&b/code %code%&7 ile etkinleştir'
+
+# Menü başlıkları (istemci en fazla ~32 karakter gösterir — kısa tutun)
+menu-title-main: '&5&lMyCodes'
+menu-title-list: '&5Promosyon Kodları'
+menu-title-editor: '&5Kod Düzenleme'
+menu-title-type: '&2Ödül Türü'
+menu-title-effects: '&bEtkiler'
+menu-title-servers: '&3Sunucu Seç'
+menu-title-settings: '&6Ayarlar'
+menu-title-telegram: '&6Telegram Ayarları'
+menu-title-item: '&2Ödül Eşyası'
+menu-title-confirm: '&cOnaylama'
+close-name: '&c✖ Kapat'
+
+# Ana menü
+main-list-name: '<gradient:#00E5FF:#7C4DFF>&l✦ Promosyon Kodları</gradient>'
+main-list-lore:
+  - '&7Kodları görüntüle, düzenle ve sil.'
+  - ''
+  - '&e▸ Sol tık — listeyi aç'
+main-create-name: '<gradient:#55FF7C:#00E5FF>&l✚ Promosyon Kodu Oluştur</gradient>'
+main-create-lore:
+  - '&7Adım adım sihirbazla yeni kod oluşturun:'
+  - '&7kod, ödül, sunucu, efektler ve limitler.'
+  - ''
+  - '&e▸ Sol tık — başla'
+main-settings-name: '<gradient:#FFD700:#FF8C00>&l⚙ Ayarlar</gradient>'
+main-settings-lore:
+  - '&7Dil, Telegram botu, efektler ve'
+  - '&7varsayılan değerler.'
+  - ''
+  - '&e▸ Sol tık — aç'
+main-help-name: '<gradient:#C7A5FF:#FF9CF3>&l? Yardım</gradient>'
+main-help-lore:
+  - '&7Komut yardımını göster.'
+  - ''
+  - '&e▸ Sol tık'
+mode-bridge-name: '<gradient:#55FF7C:#00E5FF>&l⇄ Ağ Modu</gradient>'
+mode-bridge-lore:
+  - '&7MyCodes şu platformda çalışıyor: &f%proxy%&7.'
+  - '&7Kodlar ağdaki tüm sunucular için'
+  - '&7ortaktır ve merkezi olarak saklanır.'
+mode-standalone-name: '<gradient:#FFD700:#FF6B6B>&l● Tek Sunucu</gradient>'
+mode-standalone-lore:
+  - '&7MyCodes tek başına çalışıyor.'
+  - '&7Tüm kodlar yalnızca bu sunucuda'
+  - '&7saklanır ve etkinleştirilir.'
+
+# Liste menüsü
+list-prev-name: '&e◀ Önceki sayfa'
+list-prev-lore:
+  - '&7&f%page%&7 sayfasına git.'
+list-next-name: '&eSonraki sayfa ▶'
+list-next-lore:
+  - '&7&f%page%&7 sayfasına git.'
+list-promo-command-name: '<gradient:#FFD700:#FF8C00>&l✎ %code%</gradient>'
+list-promo-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ %code%</gradient>'
+list-promo-lore:
+  - '&7Durum: %status%'
+  - '&7Ödül: &f%type%'
+  - '&7Sunucu: &f%server%'
+  - '&7Kullanım: &f%uses%&7/&f%max%'
+  - '&7Efekt: &f%effect% &7(%duration% sn)'
+  - '&7Ödül gecikmesi: &f%delay% sn'
+  - '&7Telegram: %tg%'
+  - '&7Süre sonu: &f%expire%'
+  - ''
+  - '&e▸ Sol tık — düzenle'
+
+# Düzenleyici
+editor-info-name: '<gradient:#00E5FF:#7C4DFF>&l✦ %code%</gradient>'
+editor-info-lore:
+  - '&7Durum: %status%'
+  - '&7Kullanım: &f%uses%&7/&f%max%'
+  - '&7Oluşturuldu: &f%created%'
+  - '&7Süre sonu: &f%expire%'
+editor-code-name: '&e✎ Yeniden adlandır'
+editor-code-lore:
+  - '&7Promosyon kodu metnini değiştir.'
+  - '&7Oyuncular /code ile etkinleştirir.'
+  - ''
+  - '&8Mevcut: &f%code%'
+editor-enabled-name: '&6⏻ Aç / Kapat'
+editor-enabled-lore:
+  - '&7Devre dışı kodlar saklanır ancak'
+  - '&7etkinleştirilemez.'
+  - ''
+  - '&8Şu an: %status%'
+editor-server-name: '&3⇄ Sunucu'
+editor-server-lore:
+  - '&7Bu kodun nerede etkinleştirilebileceğini'
+  - '&7kısıtla.'
+  - ''
+  - '&8Şu an: &f%server%'
+editor-reward-name: '&a✦ Ödül'
+editor-reward-lore:
+  - '&7Oyuncunun alacağı şey.'
+  - '&7Komut, %player% yer tutucusuyla konsoldan'
+  - '&7çalışır, ya da eşya verilebilir.'
+  - ''
+  - '&8Şu an: &f%type%'
+editor-uses-name: '&e# Kullanım Limiti'
+editor-uses-lore:
+  - '&7Maksimum toplam kullanım sayısı.'
+  - '&7Sınırsız için &f0&7 yazın.'
+  - ''
+  - '&8Şu an: &f%max%'
+editor-once-name: '&e⏱ Oyuncu başına bir kez'
+editor-once-lore:
+  - '&7Her oyuncu bu kodu yalnızca bir kez'
+  - '&7etkinleştirebilir.'
+  - ''
+  - '&8Şu an: %status%'
+editor-tgmode-name: '&6✈ Telegram Onayı'
+editor-tgmode-lore:
+  - '&7Telegram botu üzerinden onay gerektir:'
+  - '&7oyuncu kişisel bir bağlantı alır, botta'
+  - '&7onaylar ve kod otomatik olarak'
+  - '&7hesabına geçer.'
+  - ''
+  - '&8Şu an: %tg%'
+editor-tgonce-name: '&6✈ Çoklu Hesap Koruması'
+editor-tgonce-lore:
+  - '&7Bir Telegram hesabı bu kodu yalnızca'
+  - '&7bir kez kullanabilir (çiftleri engeller).'
+  - ''
+  - '&8Şu an: %status%'
+editor-effect-name: '&b✨ Efekt'
+editor-effect-lore:
+  - '&7Etkinleştirme anında oynanan görsel efekt.'
+  - ''
+  - '&8Şu an: &f%effect%'
+editor-duration-name: '&b⏳ Efekt Süresi'
+editor-duration-lore:
+  - '&7Efektin kaç saniye oynayacağı.'
+  - ''
+  - '&8Şu an: &f%duration% sn'
+editor-delay-name: '&b⌛ Ödül Gecikmesi'
+editor-delay-lore:
+  - '&7Aktivasyon süresi: ödül verilmeden'
+  - '&7önceki bekleme, saniye cinsinden.'
+  - ''
+  - '&8Şu an: &f%delay% sn'
+editor-message-name: '&e✉ Özel Mesaj'
+editor-message-lore:
+  - '&7Etkinleştirme anında oyuncuya gösterilecek'
+  - '&7mesaj. Gradyan işaretlemesi çalışır.'
+  - '&7Kaldırmak için &fclear&7 yazın.'
+  - ''
+  - '&8Şu an: &f%custom%'
+editor-expiry-name: '&e⌚ Süre Sonu'
+editor-expiry-lore:
+  - '&7Bu kodun çalışmayı ne zaman keseceği.'
+  - '&7&fnever&7 veya gün sayısı yazın.'
+  - ''
+  - '&8Şu an: &f%expire%'
+editor-stats-name: '&e📊 İstatistikler'
+editor-stats-lore:
+  - '&7Toplam kullanım: &f%uses%'
+  - '&7Limit: &f%max%'
+editor-preview-name: '&b▶ Efekt Önizleme'
+editor-preview-lore:
+  - '&7Efektin nasıl göründüğünü görmek için'
+  - '&7kendi üzerinizde oynatın.'
+  - ''
+  - '&e▸ Tıklayarak önizleyin'
+editor-delete-name: '&c✖ Promosyon Kodunu Sil'
+editor-delete-lore:
+  - '&7Bu kodu kalıcı olarak sil.'
+  - '&7Bu işlem geri alınamaz!'
+  - ''
+  - '&e▸ Onaylamak için tıklayın'
+editor-back-name: '&e◀ Listeye dön'
+editor-updated: '%prefix%&aKaydedildi.'
+
+# Oluşturma sihirbazı
+create-prompt-code: '%prefix%&7Sohbete &byeni promosyon kodunu&7 yazın (3–32 karakter: A-Z, 0-9, _).\n&8İptal için %cancel% yazın.'
+create-type-command-name: '<gradient:#FFD700:#FF8C00>&l✎ Konsol Komutu</gradient>'
+create-type-command-lore:
+  - '&7Komut konsoldan çalışır.'
+  - '&7Oyuncu adı için %player% kullanın.'
+  - ''
+  - '&7Örnek: &fgive %player% diamond 5'
+  - ''
+  - '&e▸ Seçmek için tıklayın'
+create-type-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ Eşya Ödülü</gradient>'
+create-type-item-lore:
+  - '&7Oyuncuya eşya ver.'
+  - '&7Eşyayı menüye yerleştireceksiniz.'
+  - ''
+  - '&e▸ Seçmek için tıklayın'
+create-prompt-command: '%prefix%&7Sohbete &bödül komutunu&7 yazın (baştaki / olmadan, %player% = oyuncu adı).\n&8İptal için %cancel% yazın.'
+create-command-set: '%prefix%&7Komut kaydedildi: &f%value%'
+create-item-hint: '%prefix%&7Eşyayı &bparlayan yuvalara&7 yerleştirin, ardından «Bitti»ye basın.'
+item-done-name: '&a✔ Bitti'
+item-done-lore:
+  - '&7Bu eşyayı ödül olarak kaydet.'
+  - ''
+  - '&e▸ Kaydetmek için tıklayın'
+item-cancel-name: '&c✖ İptal'
+item-slot-name: '&b⬆ Ödül eşyası yuvası'
+item-slot-name-filled: '&b&l✔ Eşya seçildi'
+item-slot-lore:
+  - '&7Herhangi bir eşyayı &borta yuvaya&7 yerleştirin.'
+  - '&7Eşyayı serbestçe tutabilir, alabilir ve değiştirebilirsiniz.'
+  - ''
+  - '&7Hazır olduğunuzda &a✔ Bitti&7''ye basın.'
+item-saved: '%prefix%&aÖdül eşyası kaydedildi.'
+item-returned: '%prefix%&7Menüdeki eşya envanterinize geri verildi.'
+
+# Sohbet girişi
+input-cancelled: '%prefix%&7Giriş iptal edildi.'
+input-timeout: '%prefix%&cGiriş süresi doldu.'
+input-invalid: '%prefix%&cGeçersiz değer, tekrar deneyin.'
+input-received: '%prefix%&7Kaydedildi: &f%value%'
+# Sohbet girişi beklenirken ekran ipuçları (title = ekran ortasındaki büyük yazı)
+input-hint-title: '&b&l✎ SOHBETE YAZIN'
+input-hint-subtitle: '&7Cevabınızı sohbete yazın • iptal: &f%cancel%'
+input-hint-actionbar: '&bCevabınızı sohbete yazın &8• &7iptal: &f%cancel%'
+cancel-word: 'cancel'
+
+# Sayı/metin girişi istemleri
+prompt-uses: '%prefix%&7Sohbete &bkullanım limitini&7 yazın (&f0&7 = sınırsız).\n&8İptal için %cancel% yazın.'
+prompt-expiry: '%prefix%&7Sohbete &bsüre sonunu&7 yazın: &fnever&7 veya &fgün&7 sayısı.\n&8İptal için %cancel% yazın.'
+prompt-duration: '%prefix%&7Sohbete &befekt süresini&7 saniye olarak yazın (&f1–10&7).\n&8İptal için %cancel% yazın.'
+prompt-delay: '%prefix%&7Sohbete &bödül gecikmesini&7 saniye olarak yazın (&f0–60&7).\n&8İptal için %cancel% yazın.'
+prompt-message: '%prefix%&7Sohbete &baktivasyon mesajını&7 yazın. Gradyanlar çalışır: &f<gradient:#00E5FF:#7C4DFF>metin</gradient>&7. Sıfırlamak için &fclear&7 yazın.\n&8İptal: &f%cancel%\n&7Yer tutucular: &f%player% &8— oyuncu adı, &f%code% &8— promosyon kodu, &f%uses% &8— kullanım sayısı.'
+prompt-code: '%prefix%&7Sohbete &byeni kodu&7 yazın.\n&8İptal için %cancel% yazın.'
+expiry-set-never: '%prefix%&7Süre sonu: &fsüresiz'
+expiry-set-days: '%prefix%&7Süre sonu: &f%date%'
+
+# Efekt menüsü
+effects-title-name: '&b✨ Efekt Seç'
+effects-lore:
+  - '&7Bu efekti seçmek için tıklayın.'
+  - ''
+  - '&e▸ Kendinizde önizleme: sağ tık'
+effect-FIREWORK: '✦ Gökyüzü Salvosu'
+effect-desc-FIREWORK: 'Gökyüzünü yırtan üç büyük havai fişek atışı'
+effect-FIREWORK_RAIN: '☄ Havai Fişek Yağmuru'
+effect-desc-FIREWORK_RAIN: 'Etrafınıza düşen renkli havai fişek şelaleleri'
+effect-HELIX: '✧ İkiz Sarmal'
+effect-desc-HELIX: 'Gökyüzüne yükselen iki iç içe alev sarmalı'
+effect-DOME: '✪ Işıltılı Kubbe'
+effect-desc-DOME: 'Üzerinize inen titrek parçacık kubbesi'
+effect-TOTEM: '☠ Totem Kutsaması'
+effect-desc-TOTEM: 'Dönen bir hale eşliğinde ölümsüzlük totemi büyüsü'
+effect-HEARTS: '❤ Kalp Fırtınası'
+effect-desc-HEARTS: 'Oyuncunun etrafında dönüp savrulan kalpler'
+effect-ENCHANT: '✨ Büyü Girdabı'
+effect-desc-ENCHANT: 'Büyü masası gliflerinden magik bir girdap'
+effect-EXPLOSION: '✸ BOOM!'
+effect-desc-EXPLOSION: 'Sizi havaya savuran güvenli bir patlama'
+effect-WATER: '☂ Su Sarmalı'
+effect-desc-WATER: 'Baloncuk ve sıçramalarla dolu su spirali'
+effect-MYSTIC: '✵ Mistik Portal'
+effect-desc-MYSTIC: 'End Rod ışınlarıyla dans eden portal sütunu'
+effect-LASER: '⟫ Yıldız Lazerleri'
+effect-desc-LASER: 'Gökyüzüne uzanan dönen zümrüt lazer ışınları'
+effect-FAIRY: '✿ Peri Tozu'
+effect-desc-FAIRY: 'Etrafınızda uçuşan parıltılı peri kıvılcımları'
+effect-DRAGON: '🐲 Ejderha Nefesi'
+effect-desc-DRAGON: 'Kükreyerek savrulan ejderha nefesi halkaları'
+effect-PULSAR: '✺ Pulsar Halkaları'
+effect-desc-PULSAR: 'Dönen bir hale ile genişleyen pulsar halkaları'
+effect-selected: '%prefix%&aEfekt seçildi: &b%effect%'
+
+# Sunucu menüsü
+server-any-name: '<gradient:#55FF7C:#00E5FF>&l✦ Herhangi bir sunucu</gradient>'
+server-any-lore:
+  - '&7Bu kod ağdaki her sunucuda'
+  - '&7etkinleştirilebilir.'
+server-entry-name: '&b⇄ %server%'
+server-entry-lore:
+  - '&7Bu kod yalnızca bu sunucuda'
+  - '&7etkinleştirilebilir.'
+server-current-name: '<gradient:#55FF7C:#00E5FF>&l✦ Bu sunucu</gradient>'
+server-current-lore:
+  - '&7Tek sunucu modu: kod doğrudan'
+  - '&7burada etkinleştirilir.'
+server-none-available: '%prefix%&cKullanılabilir sunucu yok (bir proxy arkasında mısınız?).'
+
+# Silme onayı
+confirm-title-name: '&c&lSilme Onayı'
+confirm-lore:
+  - '&7&b%code%&7 promosyon kodunu silmek'
+  - '&7istediğinizden emin misiniz?'
+confirm-yes-name: '<gradient:#FF5555:#FF2222>&l✔ EVET, SİL</gradient>'
+confirm-yes-lore:
+  - '&7Bu işlem geri alınamaz.'
+confirm-no-name: '<gradient:#55FF7C:#00AA00>&l✖ İPTAL</gradient>'
+confirm-no-lore:
+  - '&7Promosyon kodunu koru.'
+promo-deleted: '%prefix%&a&b%code%&a promosyon kodu silindi.'
+
+# Ayarlar
+settings-language-name: '<gradient:#FFD700:#FF8C00>&l⌘ Dil</gradient>'
+settings-language-lore:
+  - '&7Eklenti mesajlarının dili.'
+  - ''
+  - '&8Şu an: &f%language%'
+  - ''
+  - '&e▸ Değiştirmek için tıklayın (en → ru → tr)'
+settings-telegram-name: '<gradient:#29B6F6:#7C4DFF>&l✈ Telegram Botu</gradient>'
+settings-telegram-lore:
+  - '&7Bot anahtarı, yönetici sohbeti, onay modu,'
+  - '&7çoklu hesap koruması, yeni kod bildirimleri.'
+  - ''
+  - '&e▸ Açmak için tıklayın'
+settings-effect-name: '<gradient:#00E5FF:#55FF7C>&l✨ Varsayılan Efekt</gradient>'
+settings-effect-lore:
+  - '&7Yeni kodlar için varsayılan efekt.'
+  - ''
+  - '&8Şu an: &f%effect%'
+  - ''
+  - '&e▸ Seçmek için tıklayın'
+settings-broadcast-name: '<gradient:#FFAA00:#FFD700>&l📢 Yeni Kod Duyurusu</gradient>'
+settings-broadcast-lore:
+  - '&7Yeni promosyon kodlarını oyundaki tüm'
+  - '&7oyunculara duyur.'
+  - ''
+  - '&8Şu an: %status%'
+settings-reload-name: '<gradient:#FF5555:#FFAA00>&l⟳ Yeniden Yükle</gradient>'
+settings-reload-lore:
+  - '&7Yapılandırmayı, dili ve depolamayı'
+  - '&7hemen yeniden yükle.'
+  - ''
+  - '&e▸ Yeniden yüklemek için tıklayın'
+settings-info-lore:
+  - '&7Platform: &f%platform%'
+  - '&7Depolama: &f%storage%'
+  - '&7Dil: &f%language%'
+  - '&7Sürüm: &f%version%'
+settings-done: '%prefix%&aAyarlar uygulandı.'
+
+# Telegram ayarları
+tg-enabled-name: '<gradient:#55FF7C:#FF5555>&l⏻ Telegram Etkin</gradient>'
+tg-enabled-lore:
+  - '&7Telegram entegrasyonunun ana anahtarı.'
+  - ''
+  - '&8Şu an: %status%'
+tg-token-name: '<gradient:#FFD700:#FF8C00>&l🔑 Bot Anahtarı (Token)</gradient>'
+tg-token-lore:
+  - '&7@BotFather''dan alınan ANAHTAR. Çoklu hesap'
+  - '&7koruması ve kod bildirimleri için kullanılır.'
+  - '&7Ayrıntılar config.yml açıklamalarında.'
+  - ''
+  - '&8Şu an: %token-status%'
+  - ''
+  - '&e▸ Tıklayın, ardından anahtarı sohbete yazın'
+tg-token-prompt: '%prefix%&7@BotFather''dan aldığınız &bbot anahtarını (token)&7 sohbete yazın.\n&8İptal için %cancel% yazın.'
+tg-token-entered: '%prefix%&7Bota bağlanılıyor...'
+tg-token-ok: '%prefix%&aTelegram botu bağlandı: &f@%username%'
+tg-token-fail: '%prefix%&cBot başlatılamadı. Anahtarı kontrol edin.'
+tg-chat-name: '<gradient:#29B6F6:#7C4DFF>&l✉ Yönetici Sohbet ID</gradient>'
+tg-chat-lore:
+  - '&7Yeni promosyon kodları bildirimlerinin'
+  - '&7gönderileceği yer. ID''nizi öğrenmek için'
+  - '&7bota /chatid yazın.'
+  - ''
+  - '&8Şu an: &f%chat-id%'
+  - ''
+  - '&e▸ Tıklayın, ardından ID''yi sohbete yazın'
+tg-chat-prompt: '%prefix%&7&byönetici sohbet ID''sini&7 sohbete yazın (sayısal; virgülle birden fazla olabilir).\n&8İptal için %cancel% yazın.'
+tg-require-name: '<gradient:#FFAA00:#7C4DFF>&l✈ Telegram ile Onayla</gradient>'
+tg-require-lore:
+  - '&7Varsayılan olarak TÜM kodlar için Telegram'
+  - '&7onayı iste (her kod bunu kendi menüsünde'
+  - '&7geçersiz kılabilir).'
+  - ''
+  - '&8Şu an: %status%'
+tg-antimulti-name: '<gradient:#FF5555:#FFAA00>&l⛨ Çoklu Hesap Koruması</gradient>'
+tg-antimulti-lore:
+  - '&7Bir Telegram hesabı yalnızca bir oyuncuya'
+  - '&7bağlanabilir (çiftleri engeller).'
+  - ''
+  - '&8Şu an: %status%'
+tg-notify-name: '<gradient:#FFD700:#55FF7C>&l🔔 TG Bildirimleri</gradient>'
+tg-notify-lore:
+  - '&7Yeni bir promosyon kodu oluşturulduğunda'
+  - '&7yönetici sohbetine mesaj gönder.'
+  - ''
+  - '&8Şu an: %status%'
+tg-status-connected: '&abağlı (@%username%)'
+tg-status-off: '&cdevre dışı'
+tg-status-no-token: '&canahtar ayarlanmamış'
+tg-status-unavailable: '&canahtar geçersiz / erişilemiyor'
+tg-settings-status-lore:
+  - '&7Bot durumu: %status%'
+  - '&7Anahtar (token) ayrıntılı olarak'
+  - '&7config.yml açıklamalarında anlatılmıştır.'
+tg-back-name: '&e◀ Ayarlara dön'
+
+# Durumlar
+generic-on: '&aetkin'
+generic-off: '&cdevre dışı'
+generic-none: '&7(ayarlanmadı)'
+
+storage-network: 'ağ (proxy deposu)'
+storage-mysql: 'MySQL veritabanı'
+storage-json: 'JSON dosyaları'
+
+# Köprü
+bridge-unavailable: '%prefix%&cŞu anda proxy üzerindeki MyCodes eklentisine ulaşılamıyor. Ağda en az bir oyuncunun (sizin) olduğundan emin olup tekrar deneyin.'
+proxy-menu-hint: '%prefix%&7Proxy üzerinde menü, oyun sunucusunda açılır: &bMyCodes-Spigot&7 kurulu bir sunucuya girin ve &b/mcd menu&7 yazın. Metin komutları her yerde çalışır: &b/mcd list&7, &b/mcd reload&7, &b/code <kod>&7.'
+
+# Eşya verme
+item-drop-full-inventory: '%prefix%&7Envanteriniz doluydu — ödül eşyası yere düştü!'
+
+# Telegram bot mesajları (düz metin)
+tg-greeting: '✦ MyCodes botu\n\nBu bot promosyon kodlarını onaylar ve yeni kodlarla ilgili bildirim gönderir.\nKişisel bağlantı almak için oyunda bir kod etkinleştirin: /code <kod>'
+tg-confirmed: '✅ Onaylandı! %code% promosyon kodu etkinleştirildi — ödülünüz otomatik olarak verildi. İyi oyunlar!'
+tg-link-expired: '⌛ Bu onay bağlantısının süresi doldu. Yeni bağlantı almak için promosyon kodunu oyunda yeniden etkinleştirin.'
+tg-already-bound: '⛔ Bu Telegram hesabı zaten %player% oyuncusuna bağlı. Çoklu hesaplara izin verilmiyor.'
+tg-already-used: '⛔ Bu promosyon kodu hesabınız tarafından zaten kullanıldı.'
+tg-promo-gone: '⛔ Bu promosyon kodu artık mevcut değil veya devre dışı bırakıldı.'
+tg-exhausted: '⛔ Bu promosyon kodunun kullanım hakkı bitti.'
+tg-error: '⛔ Dahili hata. Lütfen daha sonra tekrar deneyin.'
+tg-chatid: 'Sohbet ID''niz: %id%\nYeni promosyon kodlarıyla ilgili bildirim almak için bu ID''yi config.yml içindeki telegram.admin-chat-id''ye (veya /mcd menüsünden) ekleyin.'
+tg-notify-new-promo: '✦ YENİ PROMOSYON KODU oluşturuldu!\n\nKod: %code%\nÖdül: %type%\nSunucu: %server%\nKullanım: %uses%\n\nOyuncularınıza duyurun!'

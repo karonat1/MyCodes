@@ -1,0 +1,511 @@
+# ═══════════════════════════════════════════════════════════════════
+#   MyCodes — сообщения плагина: РУССКИЙ
+#
+#   Цвета:        &a &b &c ... (стандартные коды Minecraft)
+#   Градиент:     <gradient:#00E5FF:#7C4DFF>ваш текст</gradient>
+#   Плейсхолдеры: %code%, %player%, %uses%, %max%, %server%, ...
+#   Применить:    /mcd reload
+# ═══════════════════════════════════════════════════════════════════
+
+# Основа
+prefix: '<gradient:#00E5FF:#7C4DFF>&l✦ MyCodes</gradient> &8»&r '
+no-permission: '%prefix%&cУ вас недостаточно прав для этого.'
+player-only: '%prefix%&cЭта команда доступна только игрокам.'
+reloaded: '%prefix%&aКонфигурация, язык и хранилище успешно перезагружены.'
+unknown-subcommand: '%prefix%&cНеизвестная подкоманда. Справка:'
+
+# /mcd help
+help:
+  - '&8&m                                                  '
+  - ' <gradient:#00E5FF:#7C4DFF>&l✦ MYCODES</gradient> &7— система промокодов'
+  - '&8&m                                                  '
+  - ' &b/mcd menu &8— &fоткрыть меню управления'
+  - ' &b/mcd list [страница] &8— &fсписок всех промокодов'
+  - ' &b/mcd reload &8— &fперечитать конфигурацию плагина'
+  - ' &b/mcd code <код> &8— &fактивировать промокод'
+  - ' &b/code <код> &8— &fактивировать промокод'
+  - ' &b/promo <код>&8, &b/promocode <код> &8— &fальтернативы'
+  - '&7 Совет: создавайте и настраивайте промокоды в &b/mcd menu&7.'
+  - '&8&m                                                  '
+
+# Активация
+redeem-usage: '%prefix%&7Использование: &b/code <код>'
+redeem-not-found: '%prefix%&cПромокод &e%code%&c не найден.'
+redeem-disabled: '%prefix%&cПромокод &e%code%&c сейчас отключён.'
+redeem-expired: '%prefix%&cСрок действия промокода &e%code%&c истёк.'
+redeem-exhausted: '%prefix%&cУ промокода &e%code%&c закончились активации.'
+redeem-already-used: '%prefix%&cВы уже активировали промокод &e%code%&c.'
+redeem-already-used-telegram: '%prefix%&cЭтот промокод уже был активирован с другого аккаунта, привязанного к вашему Telegram.'
+redeem-wrong-server: '%prefix%&cПромокод &e%code%&c можно активировать только на сервере &b%server%&c.'
+redeem-success: '<gradient:#55FF7C:#00E5FF>&lУСПЕХ!</gradient> &7Промокод &b%code%&7 активирован! Награда будет выдана совсем скоро.'
+# Экранные тексты при активации (title — крупный текст по центру, actionbar — полоса над хотбаром)
+redeem-title: '<gradient:#55FF7C:#00E5FF>&l✔ КОД АКТИВИРОВАН</gradient>'
+redeem-subtitle: '&7Ваша награда уже в пути...'
+redeem-actionbar: '<gradient:#55FF7C:#00E5FF>&l✔ Активировано!</gradient> &7Заберите награду'
+storage-error: '%prefix%&cВнутренняя ошибка хранилища. Сообщите администратору.'
+
+# Подтверждение через Telegram
+telegram-not-configured: '%prefix%&cЭтот промокод требует подтверждения через Telegram, но бот недоступен. Сообщите администратору.'
+telegram-pending: '%prefix%&7Чтобы активировать промокод &b%code%&7, подтвердите его через нашего Telegram-бота.\n&7Откройте персональную ссылку и нажмите &aStart&7.'
+telegram-pending-link: '<gradient:#29B6F6:#7C4DFF>&l&n[ НАЖМИТЕ ДЛЯ ПОДТВЕРЖДЕНИЯ В TELEGRAM ]</gradient>'
+telegram-pending-note: '&8(если клик не работает — ссылка видна при наведении)'
+
+# /mcd list
+list-header: '<gradient:#00E5FF:#7C4DFF>&l✦ Промокоды</gradient> &8— &7страница %page%'
+list-empty: '%prefix%&7Промокодов пока нет. Создайте первый через &b/mcd menu&7.'
+list-pages: '&8&m                                                  '
+list-line:
+  - '&8▪ &b%code% &7(%type%) &8— &f%status%'
+  - '   &7сервер: &f%server%&7, активаций: &f%uses%&7/&f%max%&7, эффект: &f%effect%'
+  - '   &7telegram: %tg%&7, истекает: &f%expire%'
+list-pages-format: '&7Страница &f%page%&7 из &f%pages%&7.'
+
+# Слова
+status-enabled: '&a✔ включен'
+status-disabled: '&c✘ отключен'
+type-command: 'команда консоли'
+type-item: 'награда предметом'
+unlimited: '∞'
+expire-never: 'бессрочно'
+server-any: 'любой сервер'
+server-current: 'текущий сервер'
+tg-mode-DEFAULT: '&7глобальная настройка'
+tg-mode-REQUIRED: '&bобязательно'
+tg-mode-OFF: '&cвыключено'
+
+# Создание
+create-menu-hint: '%prefix%&7Откройте меню командой &b/mcd menu&7 и нажмите «Создать промокод».'
+create-done: '%prefix%&aПромокод &b%code%&a успешно создан!'
+create-exists: '%prefix%&cПромокод &e%code%&c уже существует.'
+create-invalid-code: '%prefix%&cНекорректный код. Используйте 3–32 символа: буквы, цифры, _ или -'
+broadcast-new-promo: '<gradient:#FFD700:#FF6B6B>&l✦ НОВЫЙ ПРОМОКОД!</gradient> &f%code% &8— &7активируй его командой &b/code %code%'
+
+# Заголовки меню (клиент показывает максимум ~32 символа — держим их короткими)
+menu-title-main: '&5&lMyCodes'
+menu-title-list: '&5Промокоды'
+menu-title-editor: '&5Редактор кода'
+menu-title-type: '&2Тип награды'
+menu-title-effects: '&bЭффекты'
+menu-title-servers: '&3Выбор сервера'
+menu-title-settings: '&6Настройки'
+menu-title-telegram: '&6Настройки Telegram'
+menu-title-item: '&2Предмет-награда'
+menu-title-confirm: '&cПодтверждение'
+close-name: '&c✖ Закрыть'
+
+# Главное меню
+main-list-name: '<gradient:#00E5FF:#7C4DFF>&l✦ Промокоды</gradient>'
+main-list-lore:
+  - '&7Просмотр, редактирование и удаление'
+  - '&7промокодов.'
+  - ''
+  - '&e▸ ЛКМ — открыть список'
+main-create-name: '<gradient:#55FF7C:#00E5FF>&l✚ Создать промокод</gradient>'
+main-create-lore:
+  - '&7Создание нового промокода за несколько'
+  - '&7шагов: код, награда, сервер,'
+  - '&7эффекты и лимиты.'
+  - ''
+  - '&e▸ ЛКМ — начать создание'
+main-settings-name: '<gradient:#FFD700:#FF8C00>&l⚙ Настройки</gradient>'
+main-settings-lore:
+  - '&7Язык, Telegram-бот, эффекты,'
+  - '&7значения по умолчанию.'
+  - ''
+  - '&e▸ ЛКМ — открыть'
+main-help-name: '<gradient:#C7A5FF:#FF9CF3>&l? Справка</gradient>'
+main-help-lore:
+  - '&7Показать справку по командам.'
+  - ''
+  - '&e▸ ЛКМ'
+mode-bridge-name: '<gradient:#55FF7C:#00E5FF>&l⇄ Сетевой режим</gradient>'
+mode-bridge-lore:
+  - '&7MyCodes работает на &f%proxy%&7.'
+  - '&7Промокоды общие для всех серверов'
+  - '&7сети и хранятся централизованно'
+  - '&7на прокси.'
+mode-standalone-name: '<gradient:#FFD700:#FF6B6B>&l● Одиночный сервер</gradient>'
+mode-standalone-lore:
+  - '&7MyCodes работает автономно.'
+  - '&7Все промокоды хранятся и'
+  - '&7активируются только на этом'
+  - '&7сервере.'
+
+# Список
+list-prev-name: '&e◀ Предыдущая страница'
+list-prev-lore:
+  - '&7Перейти на страницу &f%page%&7.'
+list-next-name: '&eСледующая страница ▶'
+list-next-lore:
+  - '&7Перейти на страницу &f%page%&7.'
+list-promo-command-name: '<gradient:#FFD700:#FF8C00>&l✎ %code%</gradient>'
+list-promo-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ %code%</gradient>'
+list-promo-lore:
+  - '&7Статус: %status%'
+  - '&7Награда: &f%type%'
+  - '&7Сервер: &f%server%'
+  - '&7Активаций: &f%uses%&7/&f%max%'
+  - '&7Эффект: &f%effect% &7(%duration% сек)'
+  - '&7Задержка награды: &f%delay% сек'
+  - '&7Telegram: %tg%'
+  - '&7Истекает: &f%expire%'
+  - ''
+  - '&e▸ ЛКМ — редактировать'
+
+# Редактор
+editor-info-name: '<gradient:#00E5FF:#7C4DFF>&l✦ %code%</gradient>'
+editor-info-lore:
+  - '&7Статус: %status%'
+  - '&7Активаций: &f%uses%&7/&f%max%'
+  - '&7Создан: &f%created%'
+  - '&7Истекает: &f%expire%'
+editor-code-name: '&e✎ Переименовать'
+editor-code-lore:
+  - '&7Изменить текст промокода.'
+  - '&7Игроки активируют его через /code.'
+  - ''
+  - '&8Текущий: &f%code%'
+editor-enabled-name: '&6⏻ Вкл / Выкл'
+editor-enabled-lore:
+  - '&7Отключённые промокоды сохраняются,'
+  - '&7но их нельзя активировать.'
+  - ''
+  - '&8Сейчас: %status%'
+editor-server-name: '&3⇄ Сервер'
+editor-server-lore:
+  - '&7Ограничить, где можно активировать'
+  - '&7этот промокод.'
+  - ''
+  - '&8Сейчас: &f%server%'
+editor-reward-name: '&a✦ Награда'
+editor-reward-lore:
+  - '&7Что получит игрок.'
+  - '&7Команда выполняется от консоли с'
+  - '&7плейсхолдером %player%, или предмет.'
+  - ''
+  - '&8Сейчас: &f%type%'
+editor-uses-name: '&e# Лимит активаций'
+editor-uses-lore:
+  - '&7Максимальное число активаций.'
+  - '&7&f0&7 — без ограничений.'
+  - ''
+  - '&8Сейчас: &f%max%'
+editor-once-name: '&e⏱ Один раз на игрока'
+editor-once-lore:
+  - '&7Каждый игрок может активировать'
+  - '&7этот промокод только один раз.'
+  - ''
+  - '&8Сейчас: %status%'
+editor-tgmode-name: '&6✈ Подтверждение через Telegram'
+editor-tgmode-lore:
+  - '&7Требовать активацию через Telegram-бота:'
+  - '&7игрок получает персональную ссылку,'
+  - '&7подтверждает у бота — и промокод'
+  - '&7засчитывается автоматически.'
+  - ''
+  - '&8Сейчас: %tg%'
+editor-tgonce-name: '&6✈ Защита от твинов'
+editor-tgonce-lore:
+  - '&7Один Telegram-аккаунт может активировать'
+  - '&7этот промокод только один раз'
+  - '&7(защита от мультиаккаунтов).'
+  - ''
+  - '&8Сейчас: %status%'
+editor-effect-name: '&b✨ Эффект'
+editor-effect-lore:
+  - '&7Визуальный эффект в момент активации.'
+  - ''
+  - '&8Сейчас: &f%effect%'
+editor-duration-name: '&b⏳ Длительность эффекта'
+editor-duration-lore:
+  - '&7Сколько секунд играет эффект.'
+  - ''
+  - '&8Сейчас: &f%duration% сек'
+editor-delay-name: '&b⌛ Задержка награды'
+editor-delay-lore:
+  - '&7Время активации: пауза перед выдачей'
+  - '&7награды, в секундах.'
+  - ''
+  - '&8Сейчас: &f%delay% сек'
+editor-message-name: '&e✉ Своё сообщение'
+editor-message-lore:
+  - '&7Сообщение, которое увидит игрок при'
+  - '&7активации. Работают градиенты.'
+  - '&7Введите &fclear&7, чтобы убрать.'
+  - ''
+  - '&8Сейчас: &f%custom%'
+editor-expiry-name: '&e⌚ Срок действия'
+editor-expiry-lore:
+  - '&7Когда промокод перестанет работать.'
+  - '&7Введите &fnever&7 или число дней.'
+  - ''
+  - '&8Сейчас: &f%expire%'
+editor-stats-name: '&e📊 Статистика'
+editor-stats-lore:
+  - '&7Всего активаций: &f%uses%'
+  - '&7Лимит: &f%max%'
+editor-preview-name: '&b▶ Тест эффекта'
+editor-preview-lore:
+  - '&7Проиграть эффект на себе, чтобы'
+  - '&7посмотреть, как он выглядит.'
+  - ''
+  - '&e▸ Нажмите для теста'
+editor-delete-name: '&c✖ Удалить промокод'
+editor-delete-lore:
+  - '&7Удалить этот промокод навсегда.'
+  - '&7Действие необратимо!'
+  - ''
+  - '&e▸ Нажмите для подтверждения'
+editor-back-name: '&e◀ Назад к списку'
+editor-updated: '%prefix%&aСохранено.'
+
+# Мастер создания
+create-prompt-code: '%prefix%&7Напишите в чат &bновый промокод&7 (3–32 символа: A-Z, 0-9, _).\n&8Для отмены введите %cancel%.'
+create-type-command-name: '<gradient:#FFD700:#FF8C00>&l✎ Команда консоли</gradient>'
+create-type-command-lore:
+  - '&7Команда выполняется от имени консоли.'
+  - '&7Используйте %player% для ника игрока.'
+  - ''
+  - '&7Пример: &fgive %player% diamond 5'
+  - ''
+  - '&e▸ Нажмите, чтобы выбрать'
+create-type-item-name: '<gradient:#29B6F6:#7C4DFF>&l✦ Награда предметом</gradient>'
+create-type-item-lore:
+  - '&7Выдать игроку предмет.'
+  - '&7Вы положите предмет прямо в меню.'
+  - ''
+  - '&e▸ Нажмите, чтобы выбрать'
+create-prompt-command: '%prefix%&7Напишите в чат &bкоманду награды&7 (без слэша, %player% = ник).\n&8Для отмены введите %cancel%.'
+create-command-set: '%prefix%&7Команда сохранена: &f%value%'
+create-item-hint: '%prefix%&7Положите предмет в &bсветящийся слот&7 и нажмите «Готово».'
+item-done-name: '&a✔ Готово'
+item-done-lore:
+  - '&7Сохранить этот предмет как награду.'
+  - ''
+  - '&e▸ Нажмите для сохранения'
+item-cancel-name: '&c✖ Отмена'
+item-slot-name: '&b⬆ Слот предмета-награды'
+item-slot-name-filled: '&b&l✔ Предмет выбран'
+item-slot-lore:
+  - '&7Положите любой предмет в &bцентральный слот&7.'
+  - '&7Предмет можно свободно держать, забирать и менять.'
+  - ''
+  - '&7Когда будете готовы — нажмите &a✔ Готово&7.'
+item-saved: '%prefix%&aПредмет-награда сохранён.'
+item-returned: '%prefix%&7Предмет из меню возвращён в ваш инвентарь.'
+
+# Ввод через чат
+input-cancelled: '%prefix%&7Ввод отменён.'
+input-timeout: '%prefix%&cВремя ввода истекло.'
+input-invalid: '%prefix%&cНекорректное значение, попробуйте ещё раз.'
+input-received: '%prefix%&7Сохранено: &f%value%'
+# Подсказки на экране во время ввода через чат (title — крупный текст по центру)
+input-hint-title: '&b&l✎ ВВЕДИТЕ В ЧАТ'
+input-hint-subtitle: '&7Напишите ответ в чат • для отмены: &f%cancel%'
+input-hint-actionbar: '&bНапишите ответ в чат &8• &7отмена: &f%cancel%'
+cancel-word: 'cancel'
+
+# Подсказки для ввода чисел и текста
+prompt-uses: '%prefix%&7Напишите в чат &bлимит активаций&7 (&f0&7 = без ограничений).\n&8Для отмены введите %cancel%.'
+prompt-expiry: '%prefix%&7Напишите в чат &bсрок действия&7: &fnever&7 (бессрочно) или число &fдней&7.\n&8Для отмены введите %cancel%.'
+prompt-duration: '%prefix%&7Напишите в чат &bдлительность эффекта&7 в секундах (&f1–10&7).\n&8Для отмены введите %cancel%.'
+prompt-delay: '%prefix%&7Напишите в чат &bзадержку награды&7 в секундах (&f0–60&7).\n&8Для отмены введите %cancel%.'
+prompt-message: '%prefix%&7Напишите в чат &bсообщение при активации&7. Работают градиенты: &f<gradient:#00E5FF:#7C4DFF>текст</gradient>&7. Введите &fclear&7 для сброса.\n&8Отмена: &f%cancel%\n&7Переменные: &f%player% &8— ник игрока, &f%code% &8— промокод, &f%uses% &8— сколько активаций.'
+prompt-code: '%prefix%&7Напишите в чат &bновый код&7.\n&8Для отмены введите %cancel%.'
+expiry-set-never: '%prefix%&7Срок действия: &fбессрочно'
+expiry-set-days: '%prefix%&7Срок действия: &fдо %date%'
+
+# Меню эффектов
+effects-title-name: '&b✨ Выберите эффект'
+effects-lore:
+  - '&7Нажмите, чтобы выбрать этот эффект.'
+  - ''
+  - '&e▸ Тест на себе: ПКМ'
+effect-FIREWORK: '✦ Небесный салют'
+effect-desc-FIREWORK: 'Тройной залп крупных фейерверков в небе'
+effect-FIREWORK_RAIN: '☄ Дождь фейерверков'
+effect-desc-FIREWORK_RAIN: 'Каскады цветных фейерверков вокруг вас'
+effect-HELIX: '✧ Двойная спираль'
+effect-desc-HELIX: 'Две переплетённые огненные спирали до неба'
+effect-DOME: '✪ Сияющий купол'
+effect-desc-DOME: 'Мерцающий купол из частиц, опускающийся сверху'
+effect-TOTEM: '☠ Благословение тотема'
+effect-desc-TOTEM: 'Магия тотема бессмертия со вращающимся ореолом'
+effect-HEARTS: '❤ Шторм сердец'
+effect-desc-HEARTS: 'Сердца закручиваются вихрем вокруг игрока'
+effect-ENCHANT: '✨ Вихрь чар'
+effect-desc-ENCHANT: 'Магический вихрь из чарующих глифов'
+effect-EXPLOSION: '✸ БУМ!'
+effect-desc-EXPLOSION: 'Безопасный взрыв, подбрасывающий вас в воздух'
+effect-WATER: '☂ Водяная спираль'
+effect-desc-WATER: 'Водяной вихрь с пузырьками и брызгами'
+effect-MYSTIC: '✵ Мистический портал'
+effect-desc-MYSTIC: 'Столб портала с лучами Жезла Энда'
+effect-LASER: '⟫ Звёздные лазеры'
+effect-desc-LASER: 'Вращающиеся изумрудные лучи в небо'
+effect-FAIRY: '✿ Фейская пыльца'
+effect-desc-FAIRY: 'Рой мерцающих фейских искр вокруг вас'
+effect-DRAGON: '🐲 Дыхание дракона'
+effect-desc-DRAGON: 'Кольца драконьего дыхания с рыком'
+effect-PULSAR: '✺ Кольца пульсара'
+effect-desc-PULSAR: 'Расширяющиеся кольца пульсара с вращающимся ореолом'
+effect-selected: '%prefix%&aЭффект выбран: &b%effect%'
+
+# Меню серверов
+server-any-name: '<gradient:#55FF7C:#00E5FF>&l✦ Любой сервер</gradient>'
+server-any-lore:
+  - '&7Промокод можно активировать на'
+  - '&7любом сервере сети.'
+server-entry-name: '&b⇄ %server%'
+server-entry-lore:
+  - '&7Промокод можно активировать'
+  - '&7только на этом сервере.'
+server-current-name: '<gradient:#55FF7C:#00E5FF>&l✦ Этот сервер</gradient>'
+server-current-lore:
+  - '&7Одиночный режим: промокод'
+  - '&7активируется прямо здесь.'
+server-none-available: '%prefix%&cСписок серверов недоступен (вы за прокси?).'
+
+# Подтверждение удаления
+confirm-title-name: '&c&lПодтверждение удаления'
+confirm-lore:
+  - '&7Вы точно хотите удалить'
+  - '&7промокод &b%code%&7?'
+confirm-yes-name: '<gradient:#FF5555:#FF2222>&l✔ ДА, УДАЛИТЬ</gradient>'
+confirm-yes-lore:
+  - '&7Это действие нельзя отменить.'
+confirm-no-name: '<gradient:#55FF7C:#00AA00>&l✖ ОТМЕНА</gradient>'
+confirm-no-lore:
+  - '&7Оставить промокод как есть.'
+promo-deleted: '%prefix%&aПромокод &b%code%&a удалён.'
+
+# Настройки
+settings-language-name: '<gradient:#FFD700:#FF8C00>&l⌘ Язык</gradient>'
+settings-language-lore:
+  - '&7Язык сообщений плагина.'
+  - ''
+  - '&8Сейчас: &f%language%'
+  - ''
+  - '&e▸ Нажмите для смены (en → ru → tr)'
+settings-telegram-name: '<gradient:#29B6F6:#7C4DFF>&l✈ Telegram-бот</gradient>'
+settings-telegram-lore:
+  - '&7Ключ бота, админский чат, режим'
+  - '&7подтверждения, защита от твинов,'
+  - '&7уведомления о новых промокодах.'
+  - ''
+  - '&e▸ Нажмите, чтобы открыть'
+settings-effect-name: '<gradient:#00E5FF:#55FF7C>&l✨ Эффект по умолчанию</gradient>'
+settings-effect-lore:
+  - '&7Эффект для новых промокодов.'
+  - ''
+  - '&8Сейчас: &f%effect%'
+  - ''
+  - '&e▸ Нажмите, чтобы выбрать'
+settings-broadcast-name: '<gradient:#FFAA00:#FFD700>&l📢 Оповещения о промокодах</gradient>'
+settings-broadcast-lore:
+  - '&7Анонсировать новые промокоды всем'
+  - '&7игрокам в игровом чате.'
+  - ''
+  - '&8Сейчас: %status%'
+settings-reload-name: '<gradient:#FF5555:#FFAA00>&l⟳ Перезагрузка</gradient>'
+settings-reload-lore:
+  - '&7Перечитать конфиг, язык и хранилище'
+  - '&7прямо сейчас.'
+  - ''
+  - '&e▸ Нажмите для перезагрузки'
+settings-info-lore:
+  - '&7Платформа: &f%platform%'
+  - '&7Хранилище: &f%storage%'
+  - '&7Язык: &f%language%'
+  - '&7Версия: &f%version%'
+settings-done: '%prefix%&aНастройки применены.'
+
+# Настройки Telegram
+tg-enabled-name: '<gradient:#55FF7C:#FF5555>&l⏻ Telegram включён</gradient>'
+tg-enabled-lore:
+  - '&7Главный переключатель интеграции'
+  - '&7с Telegram.'
+  - ''
+  - '&8Сейчас: %status%'
+tg-token-name: '<gradient:#FFD700:#FF8C00>&l🔑 Ключ бота (токен)</gradient>'
+tg-token-lore:
+  - '&7КЛЮЧ от @BotFather. Используется для'
+  - '&7защиты от мультиаккаунтов и'
+  - '&7уведомлений о промокодах. Подробно —'
+  - '&7в комментариях config.yml.'
+  - ''
+  - '&8Сейчас: %token-status%'
+  - ''
+  - '&e▸ Нажмите, затем введите ключ в чат'
+tg-token-prompt: '%prefix%&7Напишите в чат &bключ (токен) бота от @BotFather&7.\n&8Для отмены введите %cancel%.'
+tg-token-entered: '%prefix%&7Подключаемся к боту...'
+tg-token-ok: '%prefix%&aTelegram-бот подключён: &f@%username%'
+tg-token-fail: '%prefix%&cНе удалось запустить бота. Проверьте ключ.'
+tg-chat-name: '<gradient:#29B6F6:#7C4DFF>&l✉ ID админского чата</gradient>'
+tg-chat-lore:
+  - '&7Куда присылать уведомления о новых'
+  - '&7промокодах. Напишите боту /chatid,'
+  - '&7чтобы узнать свой ID.'
+  - ''
+  - '&8Сейчас: &f%chat-id%'
+  - ''
+  - '&e▸ Нажмите, затем введите ID в чат'
+tg-chat-prompt: '%prefix%&7Напишите в чат &bID админского чата&7 (число; можно несколько через запятую).\n&8Для отмены введите %cancel%.'
+tg-require-name: '<gradient:#FFAA00:#7C4DFF>&l✈ Подтвердить через Telegram</gradient>'
+tg-require-lore:
+  - '&7Требовать подтверждение через Telegram'
+  - '&7по умолчанию для ВСЕХ промокодов'
+  - '&7(каждый код может переопределить'
+  - '&7это в своём меню).'
+  - ''
+  - '&8Сейчас: %status%'
+tg-antimulti-name: '<gradient:#FF5555:#FFAA00>&l⛨ Защита от мультиаккаунтов</gradient>'
+tg-antimulti-lore:
+  - '&7Один Telegram-аккаунт можно привязать'
+  - '&7только к одному игроку (блокирует'
+  - '&7твинки).'
+  - ''
+  - '&8Сейчас: %status%'
+tg-notify-name: '<gradient:#FFD700:#55FF7C>&l🔔 Уведомления в Telegram</gradient>'
+tg-notify-lore:
+  - '&7Присылать сообщение в админский чат'
+  - '&7при создании нового промокода.'
+  - ''
+  - '&8Сейчас: %status%'
+tg-status-connected: '&aподключён (@%username%)'
+tg-status-off: '&cвыключен'
+tg-status-no-token: '&cключ не задан'
+tg-status-unavailable: '&cключ неверный / бот недоступен'
+tg-settings-status-lore:
+  - '&7Статус бота: %status%'
+  - '&7Ключ (токен) подробно описан'
+  - '&7в комментариях config.yml.'
+tg-back-name: '&e◀ Назад к настройкам'
+
+# Статусы
+generic-on: '&aвключено'
+generic-off: '&cвыключено'
+generic-none: '&7(не задано)'
+
+storage-network: 'сеть (хранилище прокси)'
+storage-mysql: 'база данных MySQL'
+storage-json: 'JSON-файлы'
+
+# Мост
+bridge-unavailable: '%prefix%&cНе удалось связаться с плагином MyCodes на прокси. Убедитесь, что в сети есть хотя бы один игрок (вы), и попробуйте снова.'
+proxy-menu-hint: '%prefix%&7На прокси меню открывается на игровом сервере: зайдите на сервер с плагином &bMyCodes-Spigot&7 и введите &b/mcd menu&7. Текстовые команды работают отовсюду: &b/mcd list&7, &b/mcd reload&7, &b/code <код>&7.'
+
+# Выдача предметов
+item-drop-full-inventory: '%prefix%&7Ваш инвентарь переполнен — предмет-награда выпал на землю!'
+
+# Сообщения Telegram-бота (простой текст)
+tg-greeting: '✦ Бот MyCodes\n\nЭтот бот подтверждает промокоды и присылает уведомления о новых промокодах.\nЧтобы подтвердить промокод, получите персональную ссылку в игре: /code <код>'
+tg-confirmed: '✅ Подтверждено! Промокод %code% активирован — награда выдана автоматически. Приятной игры!'
+tg-link-expired: '⌛ Срок действия этой ссылки подтверждения истёк. Активируйте промокод в игре заново, чтобы получить новую ссылку.'
+tg-already-bound: '⛔ Этот Telegram-аккаунт уже привязан к игроку %player%. Мультиаккаунты запрещены.'
+tg-already-used: '⛔ Этот промокод уже был активирован вашим аккаунтом.'
+tg-promo-gone: '⛔ Этот промокод больше не существует или был отключён.'
+tg-exhausted: '⛔ У этого промокода закончились активации.'
+tg-error: '⛔ Внутренняя ошибка. Попробуйте позже.'
+tg-chatid: 'Ваш ID чата: %id%\nДобавьте его в telegram.admin-chat-id в config.yml (или через /mcd menu), чтобы получать уведомления о новых промокодах.'
+tg-notify-new-promo: '✦ Создан НОВЫЙ ПРОМОКОД!\n\nКод: %code%\nНаграда: %type%\nСервер: %server%\nАктиваций: %uses%\n\nРасскажите о нём игрокам!'
