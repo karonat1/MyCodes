@@ -8,7 +8,7 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/karonat1/MyCodes/releases)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.16.5--1.20.1-green.svg)](https://www.spigotmc.org/)
 [![Platforms](https://img.shields.io/badge/platforms-BungeeCord%20%7C%20Velocity%20%7C%20Spigot%2FPaper-orange.svg)](#-installation)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE.txt)
 
 </div>
 
@@ -152,7 +152,7 @@ mycodes-parent
 
 ## 📜 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE.txt](LICENSE.txt) file for details.
 
 ---
 
